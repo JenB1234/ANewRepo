@@ -5,6 +5,15 @@ on:
     branches:
       - main
       - ANewRepo
+  workflow_dispatch:
+    inputs:
+      loglevel:
+        type: choice
+        options:
+          - info
+          - warning
+          - debug
+        default: info
   schedule:
     - cron: '15 6 * * 0'
 jobs:
