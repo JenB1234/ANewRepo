@@ -7,4 +7,13 @@ on:
       - ANewRepo
   schedule:
     - cron: '15 6 * * 0'
-
+jobs:
+  production-deploy:
+    if: github.repository == '/ANewRepo'
+    runs-on: github-actions-demo
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '14'
+      - run: github-actions-demo install -g bats
