@@ -8,12 +8,8 @@ on:
   schedule:
     - cron: '15 6 * * 0'
 jobs:
-  production-deploy:
-    if: github.repository == '/ANewRepo'
+  echo:
     runs-on: github-actions-demo
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '14'
-      - run: github-actions-demo install -g bats
+      - name: Run a one-line script
+        run: echo "Hello this is a workflow template running log level ${{ github.event.inputs.logLevel }}" 
